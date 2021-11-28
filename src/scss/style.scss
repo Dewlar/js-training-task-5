@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+
+  form {
+    background-color: #102b96;
+    color: #fff;
+    width: 500px;
+    padding: 20px;
+
+    table {
+      border-spacing: 10px;
+
+      tr {
+        &:first-child {
+          font-size: 28px;
+        }
+      }
+    }
+
+    input[type="submit"]{
+      padding: 2px 15px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+body form {
+  background-color: #102b96;
+  color: #fff;
+  width: 500px;
+  padding: 20px;
+}
+body form table {
+  border-spacing: 10px;
+}
+body form table tr:first-child {
+  font-size: 28px;
+}
+body form input[type=submit] {
+  padding: 2px 15px;
+}
