@@ -18,29 +18,28 @@
             <tr>
                 <td>Login</td>
                 <td><input type="text" class="login"></td>
-                <td class="loginError"></td>
+                <td class="loginError" hidden>Max length this field is 10</td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td><input type="email" class="email" placeholder="info@example.com"></td>
-                <td class="emailError"></td>
+                <td class="emailError" hidden>Must be like: username@hostname</td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td><input type="password" class="password"></td>
-                <td class="passwordError"></td>
+                <td class="passwordError" hidden>Must equals</td>
             </tr>
             <tr>
                 <td>Confirm password</td>
-                <td><input type="password" class="confirmPassword"></td>
-                <td class="passwordError"></td>
+                <td><input type="password" class="password"></td>
+                <td class="passwordError" hidden>Must equals</td>
             </tr>
             <tr>
-                <td colspan="3"><input type="submit" value="Submit"></td>
+                <td colspan="3"><Button>Submit</Button></td>
             </tr>
         </table>
     </form>
-
     <script async src="js/script.js"></script>
 </body>
 

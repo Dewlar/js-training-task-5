@@ -6,6 +6,7 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: #102b96;
 }
 body form {
   background-color: #fff;
@@ -20,17 +21,20 @@ body form table tr:first-child {
   font-size: 28px;
 }
 body form input {
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   border-radius: 2px;
   outline: none;
   padding: 1px;
-  /*   &:focus{
-      border-color: aqua;
-    } */
 }
 body form input:hover {
-  background-color: #F4F4F5;
+  background-color: #f4f4f5;
 }
-body form input[type=submit] {
+body form .loginError,
+body form .emailError,
+body form .passwordError {
+  color: red;
+  font-size: 12px;
+}
+body form button {
   padding: 2px 15px;
 }
