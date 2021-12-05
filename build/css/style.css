@@ -29,9 +29,9 @@ body form input {
 body form input:hover {
   background-color: #f4f4f5;
 }
-body form .loginError,
-body form .emailError,
-body form .passwordError {
+body form .login-error,
+body form .email-error,
+body form .password-error {
   color: red;
   font-size: 12px;
 }
