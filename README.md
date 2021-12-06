@@ -1,8 +1,10 @@
 # js-training-task-5
 
 ### Task: Сreating a form with validation.
-> Max length login is 10.
+> Max length login is 10.  
+
 > Email must be like username@hostname.domain.
+
 > Passwords must equals.
 
 ### How to use:
