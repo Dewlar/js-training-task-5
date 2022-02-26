@@ -12,7 +12,7 @@ let path = {
     html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
     css: [source_folder + "/scss/style.scss", "!" + source_folder + "/_*.scss"],
     img: source_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
-    js: source_folder + "/js/script.js",
+    js: source_folder + "/js/**/*.js",
   },
   watch: {
     html: source_folder + "/**/*.html",

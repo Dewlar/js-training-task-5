@@ -3,14 +3,23 @@
   padding: 0;
 }
 
+:root {
+  --page-background: #102b96;
+  --white-background: #fff;
+  --form-input-hover: #f4f4f5;
+  --form-input-border: #e5e5e5;
+  --form-title-text: #000;
+  --error-message: red;
+}
+
 body {
   display: flex;
   justify-content: center;
-  background-color: #102b96;
+  background-color: var(--page-background);
 }
 body form {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--white-background);
+  color: var(--form-title-text);
   width: 500px;
   padding: 20px;
 }
@@ -20,19 +29,63 @@ body form table {
 body form table tr:first-child {
   font-size: 28px;
 }
-body form input {
-  border: 1px solid #e5e5e5;
+body form .login,
+body form .email,
+body form .password {
+  display: flex;
+  border: 1px solid var(--form-input-border);
   border-radius: 2px;
   outline: none;
-  padding: 1px;
+  padding: 0 2px;
+  height: 20px;
+  width: 164px;
 }
-body form input:hover {
-  background-color: #f4f4f5;
+body form .login:hover,
+body form .email:hover,
+body form .password:hover {
+  background-color: var(--form-input-hover);
+}
+body form .password {
+  padding: 0;
+  width: 170px;
+  border: none;
+}
+body form .password .first-password,
+body form .password .second-password {
+  border: 1px solid var(--form-input-border);
+  border-right: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  width: 146px;
+  outline: none;
+  padding: 0 2px;
+}
+body form .password .first-password:hover,
+body form .password .second-password:hover {
+  background-color: var(--form-input-hover);
+}
+body form .password .password-control {
+  border: 1px solid var(--form-input-border);
+  border-left: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+body form .password .password-control:hover {
+  background-color: var(--white-background);
+}
+body form .password .eye {
+  background: no-repeat center/14px url(../images/show.png);
+}
+body form .password .eye-slash {
+  background: no-repeat center/14px url(../images/hide.png);
 }
 body form .login-error,
 body form .email-error,
 body form .password-error {
-  color: red;
+  color: var(--error-message);
   font-size: 12px;
 }
 body form button {

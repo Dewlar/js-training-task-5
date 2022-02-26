@@ -27,12 +27,22 @@
             </tr>
             <tr>
                 <td>Password</td>
-                <td><input type="password" class="password"></td>
+                <td>
+                    <div class="password">
+                        <input type="password" class="first-password">
+                        <div class="password-control eye-slash"></div>
+                    </div>
+                </td>
                 <td class="password-error" hidden>Must equals</td>
             </tr>
             <tr>
                 <td>Confirm password</td>
-                <td><input type="password" class="confirm-password password"></td>
+                <td>
+                    <div class="password">
+                        <input type="text" class="second-password">
+                        <div class="password-control eye"></div>
+                    </div>
+                </td>
                 <td class="password-error" hidden>Must equals</td>
             </tr>
             <tr>
@@ -40,8 +50,8 @@
             </tr>
         </table>
     </form>
-    
-    <script async src="js/script.js"></script>
+
+    <script async src="js/script_n.js"></script>
 </body>
 
 </html>

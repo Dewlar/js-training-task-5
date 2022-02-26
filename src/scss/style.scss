@@ -3,14 +3,23 @@
   padding: 0;
 }
 
+:root {
+  --page-background: #102b96;
+  --white-background: #fff;
+  --form-input-hover: #f4f4f5;
+  --form-input-border: #e5e5e5;
+  --form-title-text: #000;
+  --error-message: red;
+}
+
 body {
   display: flex;
   justify-content: center;
-  background-color: #102b96;
+  background-color: var(--page-background);
 
   form {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--white-background);
+    color: var(--form-title-text);
     width: 500px;
     padding: 20px;
 
@@ -24,21 +33,69 @@ body {
       }
     }
 
-    input {
-      border: 1px solid #e5e5e5;
+    .login,
+    .email,
+    .password {
+      display: flex;
+      border: 1px solid var(--form-input-border);
       border-radius: 2px;
       outline: none;
-      padding: 1px;
+      padding: 0 2px;
+      height: 20px;
+      width: 164px;
 
       &:hover {
-        background-color: #f4f4f5;
+        background-color: var(--form-input-hover);
+      }
+    }
+
+    .password {
+      padding: 0;
+      width: 170px;
+      border: none;
+
+      .first-password,
+      .second-password {
+        border: 1px solid var(--form-input-border);
+        border-right: none;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        width: 146px;
+        outline: none;
+        padding: 0 2px;
+
+        &:hover {
+          background-color: var(--form-input-hover);
+        }
+      }
+
+      .password-control {
+        border: 1px solid var(--form-input-border);
+        border-left: none;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        height: 18px;
+        width: 18px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--white-background);
+        }
+      }
+
+      .eye {
+        background: no-repeat center/14px url(../images/show.png);
+      }
+
+      .eye-slash {
+        background: no-repeat center/14px url(../images/hide.png);
       }
     }
 
     .login-error,
     .email-error,
-    .password-error{
-      color: red;
+    .password-error {
+      color: var(--error-message);
       font-size: 12px;
     }
 
