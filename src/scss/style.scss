@@ -69,7 +69,8 @@ body {
         }
       }
 
-      .password-control {
+      .first-show-password-icon,
+      .second-show-password-icon {
         border: 1px solid var(--form-input-border);
         border-left: none;
         border-top-right-radius: 2px;
