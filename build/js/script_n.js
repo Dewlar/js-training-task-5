@@ -11,9 +11,13 @@ document.querySelector('.login').addEventListener('input', (loginNode) => {
   let login = loginNode.target.value;
 
   if (login.length > 10) {
-    loginErrorNode.hidden = false;
+    loginErrorNode.classList.remove('hidden');
+    loginNode.target.classList.add('input-error');
+    loginNode.target.classList.remove('input-border');
   } else {
-    loginErrorNode.hidden = true;
+    loginErrorNode.classList.add('hidden');
+    loginNode.target.classList.remove('input-error');
+    loginNode.target.classList.add('input-border');
   }
 });
 //----------------------------email-----------------------//
@@ -21,9 +25,13 @@ document.querySelector('.email').addEventListener('blur', (emailNode) => {
   let email = emailNode.target.value;
 
   if (!validateEmail(email)) {
-    emailErrorNode.hidden = false;
+    emailErrorNode.classList.remove('hidden');
+    emailNode.target.classList.add('input-error');
+    emailNode.target.classList.remove('input-border');
   } else {
-    emailErrorNode.hidden = true;
+    emailErrorNode.classList.add('hidden');
+    emailNode.target.classList.remove('input-error');
+    emailNode.target.classList.add('input-border');
   }
 });
 
@@ -44,49 +52,43 @@ const secondPasswordIcon = document.querySelector('.second-show-password-icon');
 const passwordNode = document.querySelector('.first-password');
 const confirmPasswordNode = document.querySelector('.second-password');
 
-passwordNode.addEventListener('blur', () => {
-  equalsPassword();
-});
-confirmPasswordNode.addEventListener('blur', () => {
-  equalsPassword();
-});
+passwordNode.addEventListener('blur', equalsPassword);
+confirmPasswordNode.addEventListener('blur', equalsPassword);
 
 function equalsPassword() {
+  const passwordsError = document.querySelectorAll('.password-error');
   let confirmPassword = confirmPasswordNode.value;
   let password = passwordNode.value;
 
-  const passwordsError = document.querySelectorAll('.password-error');
   if (password === confirmPassword) {
     // personalInfo.password = password.value;
-    passwordsError[0].hidden = true;
-    passwordsError[1].hidden = true;
-    // passwordNode.style.borderColor = borderColorOnBlur;
-    // confirmPasswordNode.style.borderColor = borderColorOnBlur;
+    passwordsError[0].classList.add('hidden');
+    passwordsError[1].classList.add('hidden');
+    passwordNode.classList.remove('input-error');
+    passwordNode.classList.add('input-border');
+    confirmPasswordNode.classList.remove('input-error');
+    confirmPasswordNode.classList.add('input-border');
+    firstPasswordIcon.classList.remove('input-error');
+    firstPasswordIcon.classList.add('input-border');
+    secondPasswordIcon.classList.remove('input-error');
+    secondPasswordIcon.classList.add('input-border');
   } else {
     // personalInfo.password = false;
-    passwordsError[0].hidden = false;
-    passwordsError[1].hidden = false;
-    // passwordNode.style.borderColor = errorColor;
-    // confirmPasswordNode.style.borderColor = errorColor;
+    passwordsError[0].classList.remove('hidden');
+    passwordsError[1].classList.remove('hidden');
+    passwordNode.classList.add('input-error');
+    passwordNode.classList.remove('input-border');
+    confirmPasswordNode.classList.add('input-error');
+    confirmPasswordNode.classList.remove('input-border');
+    firstPasswordIcon.classList.add('input-error');
+    firstPasswordIcon.classList.remove('input-border');
+    secondPasswordIcon.classList.add('input-error');
+    secondPasswordIcon.classList.remove('input-border');
   }
 }
 
-firstPasswordIcon.addEventListener('click', () => {
-  showPasswordIconToggle();
-  showPasswordToggle();
-});
-
-secondPasswordIcon.addEventListener('click', () => {
-  showPasswordIconToggle();
-  showPasswordToggle();
-});
-
-function showPasswordIconToggle() {
-  firstPasswordIcon.classList.toggle('eye-slash');
-  firstPasswordIcon.classList.toggle('eye');
-  secondPasswordIcon.classList.toggle('eye-slash');
-  secondPasswordIcon.classList.toggle('eye');
-}
+firstPasswordIcon.addEventListener('click', showPasswordToggle);
+secondPasswordIcon.addEventListener('click', showPasswordToggle);
 
 function showPasswordToggle() {
   if (passwordNode.type === 'password') {
@@ -96,6 +98,11 @@ function showPasswordToggle() {
     passwordNode.type = 'password';
     confirmPasswordNode.type = 'password';
   }
+
+  firstPasswordIcon.classList.toggle('eye-slash');
+  firstPasswordIcon.classList.toggle('eye');
+  secondPasswordIcon.classList.toggle('eye-slash');
+  secondPasswordIcon.classList.toggle('eye');
 }
 
 //------------------------functions---------------------------//

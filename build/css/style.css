@@ -8,8 +8,26 @@
   --white-background: #fff;
   --form-input-hover: #f4f4f5;
   --form-input-border: #e5e5e5;
+  --form-input-border-focus: aqua;
+  --form-input-border-error: red;
   --form-title-text: #000;
   --error-message: red;
+}
+
+.input-error {
+  border: 1px solid var(--form-input-border-error);
+}
+
+.input-focus {
+  border: 1px solid var(--form-input-border-focus);
+}
+
+.input-border {
+  border: 1px solid var(--form-input-border);
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -33,7 +51,6 @@ body form .login,
 body form .email,
 body form .password {
   display: flex;
-  border: 1px solid var(--form-input-border);
   border-radius: 2px;
   outline: none;
   padding: 0 2px;
@@ -52,7 +69,6 @@ body form .password {
 }
 body form .password .first-password,
 body form .password .second-password {
-  border: 1px solid var(--form-input-border);
   border-right: none;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -66,7 +82,6 @@ body form .password .second-password:hover {
 }
 body form .password .first-show-password-icon,
 body form .password .second-show-password-icon {
-  border: 1px solid var(--form-input-border);
   border-left: none;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
