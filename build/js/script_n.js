@@ -2,6 +2,7 @@ const loginErrorNode = document.querySelector('.login-error');
 const emailErrorNode = document.querySelector('.email-error');
 const passwordErrorNode = document.querySelector('.password-error');
 let firstEntryPassword = 0;
+let personalInfo = { login: false, email: false, password: false };
 
 //----------------------------login---------------------//
 document.querySelector('.login').addEventListener('input', (loginNode) => {
@@ -11,10 +12,14 @@ document.querySelector('.login').addEventListener('input', (loginNode) => {
     loginErrorNode.classList.remove('hidden');
     loginNode.target.classList.add('input-error');
     loginNode.target.classList.remove('input-border');
+
+    personalInfo.login = false;
   } else {
     loginErrorNode.classList.add('hidden');
     loginNode.target.classList.remove('input-error');
     loginNode.target.classList.add('input-border');
+
+    personalInfo.login = login;
   }
 });
 //----------------------------email-----------------------//
@@ -25,10 +30,14 @@ document.querySelector('.email').addEventListener('blur', (emailNode) => {
     emailErrorNode.classList.remove('hidden');
     emailNode.target.classList.add('input-error');
     emailNode.target.classList.remove('input-border');
+
+    personalInfo.email = false;
   } else {
     emailErrorNode.classList.add('hidden');
     emailNode.target.classList.remove('input-error');
     emailNode.target.classList.add('input-border');
+
+    personalInfo.email = email;
   }
 });
 
@@ -56,11 +65,11 @@ function equalsPassword() {
   const passwordsError = document.querySelectorAll('.password-error');
   let confirmPassword = confirmPasswordNode.value;
   let password = passwordNode.value;
-  
+
   if (firstEntryPassword) {
     if (firstEntryPassword === 'yes') firstEntryPassword = 'no';
-    if (password === confirmPassword) {
-      // personalInfo.password = password.value;
+    if (password === confirmPassword && password !== '') {
+      personalInfo.password = password;
       passwordsError[0].classList.add('hidden');
       passwordsError[1].classList.add('hidden');
       passwordNode.classList.remove('input-error');
@@ -72,7 +81,7 @@ function equalsPassword() {
       secondPasswordIcon.classList.remove('input-error');
       secondPasswordIcon.classList.add('input-border');
     } else {
-      // personalInfo.password = false;
+      personalInfo.password = false;
       passwordsError[0].classList.remove('hidden');
       passwordsError[1].classList.remove('hidden');
       passwordNode.classList.add('input-error');
@@ -105,4 +114,23 @@ function showPasswordToggle() {
   firstPasswordIcon.classList.toggle('eye');
   secondPasswordIcon.classList.toggle('eye-slash');
   secondPasswordIcon.classList.toggle('eye');
+}
+
+//---------------submit---------------//
+document.querySelector('form').onsubmit = function () {
+  this.action = '#';
+  if (validateForm(personalInfo)) {
+    alert('login: ' + personalInfo.login + '\nemail: ' + personalInfo.email + '\npassword: ' + personalInfo.password);
+  } else {
+    alert('Проверьте правильность ввода данных.\n    Поля не должны быть пустыми!\n       Поля не должны содержать ошибки!');
+  }
+};
+
+function validateForm(formFields) {
+  for (let isFieldValid in formFields) {
+    if (!formFields[isFieldValid]) {
+      return false;
+    }
+  }
+  return true;
 }
