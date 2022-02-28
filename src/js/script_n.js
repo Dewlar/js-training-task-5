@@ -1,10 +1,7 @@
 const loginErrorNode = document.querySelector('.login-error');
 const emailErrorNode = document.querySelector('.email-error');
 const passwordErrorNode = document.querySelector('.password-error');
-// let firstEntryPassword = 0;
-const borderColorOnFocus = 'aqua';
-const borderColorOnBlur = '#E5E5E5';
-const errorColor = 'red';
+let firstEntryPassword = 0;
 
 //----------------------------login---------------------//
 document.querySelector('.login').addEventListener('input', (loginNode) => {
@@ -59,34 +56,39 @@ function equalsPassword() {
   const passwordsError = document.querySelectorAll('.password-error');
   let confirmPassword = confirmPasswordNode.value;
   let password = passwordNode.value;
-
-  if (password === confirmPassword) {
-    // personalInfo.password = password.value;
-    passwordsError[0].classList.add('hidden');
-    passwordsError[1].classList.add('hidden');
-    passwordNode.classList.remove('input-error');
-    passwordNode.classList.add('input-border');
-    confirmPasswordNode.classList.remove('input-error');
-    confirmPasswordNode.classList.add('input-border');
-    firstPasswordIcon.classList.remove('input-error');
-    firstPasswordIcon.classList.add('input-border');
-    secondPasswordIcon.classList.remove('input-error');
-    secondPasswordIcon.classList.add('input-border');
+  
+  if (firstEntryPassword) {
+    if (firstEntryPassword === 'yes') firstEntryPassword = 'no';
+    if (password === confirmPassword) {
+      // personalInfo.password = password.value;
+      passwordsError[0].classList.add('hidden');
+      passwordsError[1].classList.add('hidden');
+      passwordNode.classList.remove('input-error');
+      passwordNode.classList.add('input-border');
+      confirmPasswordNode.classList.remove('input-error');
+      confirmPasswordNode.classList.add('input-border');
+      firstPasswordIcon.classList.remove('input-error');
+      firstPasswordIcon.classList.add('input-border');
+      secondPasswordIcon.classList.remove('input-error');
+      secondPasswordIcon.classList.add('input-border');
+    } else {
+      // personalInfo.password = false;
+      passwordsError[0].classList.remove('hidden');
+      passwordsError[1].classList.remove('hidden');
+      passwordNode.classList.add('input-error');
+      passwordNode.classList.remove('input-border');
+      confirmPasswordNode.classList.add('input-error');
+      confirmPasswordNode.classList.remove('input-border');
+      firstPasswordIcon.classList.add('input-error');
+      firstPasswordIcon.classList.remove('input-border');
+      secondPasswordIcon.classList.add('input-error');
+      secondPasswordIcon.classList.remove('input-border');
+    }
   } else {
-    // personalInfo.password = false;
-    passwordsError[0].classList.remove('hidden');
-    passwordsError[1].classList.remove('hidden');
-    passwordNode.classList.add('input-error');
-    passwordNode.classList.remove('input-border');
-    confirmPasswordNode.classList.add('input-error');
-    confirmPasswordNode.classList.remove('input-border');
-    firstPasswordIcon.classList.add('input-error');
-    firstPasswordIcon.classList.remove('input-border');
-    secondPasswordIcon.classList.add('input-error');
-    secondPasswordIcon.classList.remove('input-border');
+    firstEntryPassword = 'yes';
   }
 }
-
+//-----------------show password icon-------------------//
 firstPasswordIcon.addEventListener('click', showPasswordToggle);
 secondPasswordIcon.addEventListener('click', showPasswordToggle);
 
@@ -104,5 +106,3 @@ function showPasswordToggle() {
   secondPasswordIcon.classList.toggle('eye-slash');
   secondPasswordIcon.classList.toggle('eye');
 }
-
-//------------------------functions---------------------------//

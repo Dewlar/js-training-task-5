@@ -52,7 +52,6 @@ body {
     .email,
     .password {
       display: flex;
-      // border: 1px solid var(--form-input-border);
       border-radius: 2px;
       outline: none;
       padding: 0 2px;
@@ -71,7 +70,6 @@ body {
 
       .first-password,
       .second-password {
-        // border: 1px solid var(--form-input-border);
         border-right: none;
         border-top-left-radius: 2px;
         border-bottom-left-radius: 2px;
@@ -86,7 +84,6 @@ body {
 
       .first-show-password-icon,
       .second-show-password-icon {
-        // border: 1px solid var(--form-input-border);
         border-left: none;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
